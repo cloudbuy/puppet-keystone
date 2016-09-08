@@ -208,9 +208,9 @@ class keystone::wsgi::apache (
   ~> Anchor['keystone::config::end']
 
   # Start the service during the service phase
-  Anchor['keystone::service::begin']
-  -> Service['httpd']
-  -> Anchor['keystone::service::end']
+  #Anchor['keystone::service::begin']
+  #-> Service['httpd']
+  #-> Anchor['keystone::service::end']
 
   # Notify the service when config changes
   Anchor['keystone::config::end']
