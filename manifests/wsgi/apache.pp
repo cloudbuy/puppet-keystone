@@ -204,7 +204,7 @@ class keystone::wsgi::apache (
 
   # Configure apache during the config phase
   Anchor['keystone::config::begin']
-  -> Apache::Vhost<||>
+  -> Apache::Vhost<| title == 'keystone_wsgi_main' or title == 'keystone_wsgi_admin' |>
   ~> Anchor['keystone::config::end']
 
   # Start the service during the service phase
